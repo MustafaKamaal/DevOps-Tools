@@ -27,7 +27,7 @@ check() {
 if [ $xmod -ge 94 ]
 then
 #The command to send an email through mailgun
-curl -s  --user $mailgunid $mailgunapi -F from='EnCloudEn Alerts <alerts@enclouden.com>' -F to=a@a.com -F to=b@a.com -F to=c@a.com -F to=d@a.com -F subject="  $customer  -  $(hostname)   : RAM Spike  " -F text="  $customer  -  $(hostname)   is expected to reboot due to RAM spike. Current RAM is  $xmod %  "
+curl -s  --user $mailgunid $mailgunapi -F from='Company Alerts <alerts@company.com>' -F to=a@a.com -F to=b@a.com -F to=c@a.com -F to=d@a.com -F subject="  $customer  -  $(hostname)   : RAM Spike  " -F text="  $customer  -  $(hostname)   is expected to reboot due to RAM spike. Current RAM is  $xmod %  "
 #The command to send a Team channel alert
 curl -i --request POST $teamswebhook -d '{"text":" '$customer' : '$(hostname)' is expected to reboot due to RAM spike. Current RAM is '$xmod'%"}'
 fi
@@ -35,7 +35,7 @@ fi
 if [ "$c" -lt 4 ]
 then
 #The command to send an email through mailgun
-curl -s  --user $mailgunid $mailgunapi -F from='EnCloudEn Alerts <alerts@enclouden.com>' -F to=a@a.com -F to=b@a.com -F to=c@a.com -F to=d@a.com -F subject="  $customer  -  $(hostname)   : CPU Spike  " -F text="  $customer  -  $(hostname)   is expected to reboot due to CPU spike. Current CPU is  $diff %  "
+curl -s  --user $mailgunid $mailgunapi -F from='Company Alerts <alerts@company.com>' -F to=a@a.com -F to=b@a.com -F to=c@a.com -F to=d@a.com -F subject="  $customer  -  $(hostname)   : CPU Spike  " -F text="  $customer  -  $(hostname)   is expected to reboot due to CPU spike. Current CPU is  $diff %  "
 #The command to send a Team channel alert
 curl -i --request POST $teamswebhook -d '{"text":" '$customer' : '$(hostname)' is expected to reboot due to CPU spike. Current CPU is '$diff'%"}'
 fi
